@@ -1,8 +1,8 @@
 import { icon } from "../assets/icon";
-import { SongItf } from "../utils/interfaces";
+import { ISong } from "../utils/interfaces";
 
 interface Props {
-  inforSong: SongItf;
+  inforSong: ISong;
 }
 
 const Song: React.FC<Props> = (props) => {

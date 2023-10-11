@@ -1,64 +1,38 @@
-import homeApi from "../api/home-api";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import ReactLoading from "react-loading";
 import Banner from "../components/banner";
-import { Section, HomeData } from "../utils/interfaces";
+import { ISection } from "../utils/interfaces";
 import ChartHome from "../components/chart-home";
 import PlayList from "../components/playlist";
+import { getHomeData } from "../redux/apiRequest";
+
 const Home: React.FC = () => {
-  const [dataHome, setDataHome] = useState<HomeData>({
-    playList: [],
-    banner: {
-      sectionId: "",
-      items: [],
-      title: "",
-      viewType: "",
-      link: "",
-      sectionType: " ",
-    },
-    RTChart: {
-      sectionId: "",
-      items: [],
-      sectionType: "",
-    },
-  });
+  const dispatch = useDispatch();
+  const homeData = useSelector((state: any) => state.home?.dataHomepage);
+  const pending = useSelector((state: any) => state.home?.pending);
   useEffect(() => {
-    const getChartHome = async () => {
-      const response = await homeApi.getDataHome();
-      const filter: HomeData = {
-        playList: [],
-        banner: {
-          sectionId: "",
-          items: [],
-          title: "",
-          viewType: "",
-          link: "",
-          sectionType: " ",
-        },
-        RTChart: {
-          sectionId: "",
-          items: [],
-          sectionType: "",
-        },
-      };
-      response.data.items.forEach((data: Section) => {
-        if (data.sectionType === "playlist") filter.playList.push(data);
-        if (data.sectionType === "banner") filter.banner = { ...data };
-        if (data.sectionType === "RTChart") filter.RTChart = { ...data };
-      });
-      setDataHome(filter);
-    };
-    getChartHome();
+    getHomeData(dispatch);
   }, []);
+  console.log(homeData.playlist);
   return (
-    <div>
-      <div className="flex gap-[22px]">
-        <Banner banners={dataHome.banner} />
-        <ChartHome chart={dataHome.RTChart} />
-      </div>
-      {dataHome.playList.map((list, index: number) => {
-        return <PlayList key={index} list={list} />;
-      })}
-    </div>
+    <>
+      {pending ? (
+        <div className="w-full flex justify-center">
+          <ReactLoading type="spin" color="#fff" width="10%" height="10%" />
+        </div>
+      ) : (
+        <div>
+          <div className="flex gap-[22px]">
+            <Banner banners={homeData.banner} />
+            <ChartHome chart={homeData.RTChart} />
+          </div>
+          {homeData?.playlist.map((list: ISection, index: number) => {
+            return <PlayList key={index} list={list} />;
+          })}
+        </div>
+      )}
+    </>
   );
 };
 export default Home;

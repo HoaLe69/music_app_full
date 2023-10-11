@@ -1,8 +1,8 @@
-import { Section } from "../utils/interfaces";
+import { ISection } from "../utils/interfaces";
 import { IBanner } from "../utils/interfaces";
 
 interface Props {
-  banners: Section;
+  banners: ISection;
 }
 
 const Banner: React.FC<Props> = (props) => {

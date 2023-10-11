@@ -1,18 +1,18 @@
-import { SongItf } from "../utils/interfaces"
+import { ISong } from "../utils/interfaces";
 
-const init:SongItf[] = []
+const init: ISong[] = [];
 
 interface Action {
-	type : string,
-	payload : [],
+  type: string;
+  payload: [];
 }
-const playListReducer = (state = init , action : Action) => {
-	switch(action.type) {
-		case 'CHOOSE_LIST' : {
-			return action.payload 
-		} 
-		default :
-			return state
-	}	
-}
-export default playListReducer
+const playListReducer = (state = init, action: Action) => {
+  switch (action.type) {
+    case "CHOOSE_LIST": {
+      return action.payload;
+    }
+    default:
+      return state;
+  }
+};
+export default playListReducer;

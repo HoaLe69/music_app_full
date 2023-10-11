@@ -1,11 +1,11 @@
 import { icon } from "../assets/icon";
 import { TimeConvert } from "../utils/convertTime";
-import { SongItf } from "../utils/interfaces";
+import { ISong } from "../utils/interfaces";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 
 interface Props {
-  song: SongItf;
+  song: ISong;
   top?: number;
   index?: number;
 }

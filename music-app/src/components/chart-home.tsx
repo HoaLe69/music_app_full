@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
 import Song from "./song";
-import { SongItf } from "../utils/interfaces";
-import { Section } from "../utils/interfaces";
+import { ISong } from "../utils/interfaces";
+import { ISection } from "../utils/interfaces";
 
 interface Props {
-  chart: Section;
+  chart: ISection;
 }
 const ChartHome: React.FC<Props> = (props) => {
   const { chart } = props;
@@ -17,9 +17,9 @@ const ChartHome: React.FC<Props> = (props) => {
         </Link>
       </div>
       <div>
-        {chart.items.slice(0, 3).map((song: SongItf, index: number) => {
-          return <Song inforSong={song} key={index} />;
-        })}
+        {/* {chart.items.map((song: ISong, index: number) => { */}
+        {/*   return <Song inforSong={song} key={index} />; */}
+        {/* })} */}
       </div>
     </div>
   );

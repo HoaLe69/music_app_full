@@ -1,8 +1,8 @@
-import { SongItf } from "../utils/interfaces";
+import { ISong } from "../utils/interfaces";
 import { Link } from "react-router-dom";
 
 interface Props {
-  cardData: SongItf;
+  cardData: ISong;
 }
 
 const CardPlayList: React.FC<Props> = (props) => {

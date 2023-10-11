@@ -1,18 +1,13 @@
-export interface Section {
+export interface ISection {
   sectionType: string;
-  items: any;
+  items: ISong[];
   title?: string;
   sectionId: string;
   viewType?: string;
   link?: string;
 }
-export interface HomeData {
-  playList: Section[];
-  banner: Section;
-  RTChart: Section;
-}
 interface Song {
-  items: SongItf[];
+  items: ISong[];
   total: number;
   totalDuration: number;
 }
@@ -26,7 +21,7 @@ interface Artist {
   thumbnail: string;
   thumbnailM: string;
 }
-export interface SongItf {
+export interface ISong {
   encodeId: string;
   title: string;
   artists: Artist[];
