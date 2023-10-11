@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@layer base {
+	html {
+		font-family: "Quicksand", sans-serif;
+	}
+	input {
+		outline: none;
+	}
+	img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		
+	}
+}
+@layer components {
+	.active {
+		@apply text-yellow
+	}
+	.icon {
+		@apply cursor-pointer p-[5px] rounded-full hover:bg-white-11
+	}
+	.btn {
+		@apply flex w-max bg-white-7 items-center rounded-[25px] py-[10px] px-[12px] gap-[7px]
+	}
+	.active  {
+		@apply text-yellow	
+	}
+	.track-wrap {
+		@apply bg-white-4 rounded-[50px] flex-1 h-[4px] relative  cursor-pointer
+	}
+}
+
