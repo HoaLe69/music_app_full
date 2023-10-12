@@ -13,8 +13,7 @@ const Home: React.FC = () => {
   const pending = useSelector((state: any) => state.home?.pending);
   useEffect(() => {
     getHomeData(dispatch);
-  }, []);
-  console.log(homeData.playlist);
+  }, [dispatch]);
   return (
     <>
       {pending ? (
@@ -23,7 +22,7 @@ const Home: React.FC = () => {
         </div>
       ) : (
         <div>
-          <div className="flex gap-[22px]">
+          <div className="flex gap-[22px] flex-row ">
             <Banner banners={homeData.banner} />
             <ChartHome chart={homeData.RTChart} />
           </div>

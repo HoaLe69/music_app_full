@@ -14,3 +14,22 @@
 ::-webkit-scrollbar {
   width: 8px;
 }
+
+.slide_image.activeSlide {
+  transform: translateX(0);
+  opacity: 1;
+}
+.slide_image.nextSlide {
+  transform: translateX(100%);
+}
+.slide_image.lastSlide {
+  transform: translateX(-100%);
+}
+.slide_image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: all ease 0.7s;
+  object-fit: conver;
+}

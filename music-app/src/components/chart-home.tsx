@@ -17,9 +17,9 @@ const ChartHome: React.FC<Props> = (props) => {
         </Link>
       </div>
       <div>
-        {/* {chart.items.map((song: ISong, index: number) => { */}
-        {/*   return <Song inforSong={song} key={index} />; */}
-        {/* })} */}
+        {chart?.items?.slice(0, 3).map((song: ISong, index: number) => {
+          return <Song inforSong={song} key={index} />;
+        })}
       </div>
     </div>
   );

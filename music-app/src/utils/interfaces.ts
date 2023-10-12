@@ -1,6 +1,6 @@
 export interface ISection {
   sectionType: string;
-  items: ISong[];
+  items: any;
   title?: string;
   sectionId: string;
   viewType?: string;
