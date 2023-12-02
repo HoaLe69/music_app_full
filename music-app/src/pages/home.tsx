@@ -1,8 +1,8 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import ReactLoading from "react-loading";
 import Banner from "../components/banner";
 import { ISection } from "../utils/interfaces";
+import { BeatLoader } from "react-spinners";
 import ChartHome from "../components/chart-home";
 import PlayList from "../components/playlist";
 import { getHomeData } from "../redux/apiRequest";
@@ -17,8 +17,8 @@ const Home: React.FC = () => {
   return (
     <>
       {pending ? (
-        <div className="w-full flex justify-center">
-          <ReactLoading type="spin" color="#fff" width="10%" height="10%" />
+        <div className="w-full  flex justify-center">
+          <BeatLoader color="#fff" />
         </div>
       ) : (
         <div>

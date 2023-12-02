@@ -1,8 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
-import homeSlice from "./homeSlice";
+import homeReducer from "./homeSlice";
+import topReducer from "./topSlice";
+import playListReducer from "./playListSlice";
 
 export const store = configureStore({
   reducer: {
-    home: homeSlice,
+    home: homeReducer,
+    top: topReducer,
+    playList: playListReducer,
   },
 });
